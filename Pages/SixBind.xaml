@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="data_bind.Pages.SixBind"
+             Title="SixBind">
+    <VerticalStackLayout>
+        <Entry 
+            x:Name="txtName"
+            Text="{Binding Name}"
+            VerticalOptions="Center" 
+            FontSize="50"
+            HorizontalOptions="Center" />
+        <Entry 
+            x:Name="txtPhone"
+            Text="{Binding Phone}"
+            FontSize="50"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Entry 
+            x:Name="txtAddress"
+            Text="{Binding Address}"
+            FontSize="50"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Button 
+            Text="Bind Name"
+            Clicked="Button_Clicked"
+            VerticalOptions="Center" 
+            HorizontalOptions="FillAndExpand"
+            />
+    </VerticalStackLayout>
+</ContentPage>

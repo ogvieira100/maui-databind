@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="data_bind.Pages.FiveBind"
+             Title="FiveBind">
+    <ScrollView>
+        <VerticalStackLayout
+       
+        >
+       
+            <Label 
+            Text="Modo OneTime nesse modo o target assume o valor do source até que o target seja modificado"
+            VerticalOptions="Center" 
+             />
+            <Entry 
+            x:Name="sourceOneTime"
+            FontSize="50"
+            Text="Initial"
+            Placeholder="Source" />
+
+            <Entry 
+            x:Name="targetOneTime"
+            FontSize="50"
+            Text="{Binding Source={x:Reference sourceOneTime}, Path=Text, Mode=OneTime}"
+            Placeholder="Target" />
+
+            <Label 
+            Text="Modo  OneWay nesse modo apenas a primeira alteração no source afeta o target se modificar o target não altera mais"
+            VerticalOptions="Center" 
+             />
+            <Entry 
+            x:Name="sourceOneWay"
+            FontSize="50"
+            Text="Initial"
+            Placeholder="Source" />
+
+            <Entry 
+            x:Name="targetOneWay"
+            FontSize="50"
+            Text="{Binding Source={x:Reference sourceOneWay}, Path=Text, Mode=OneWay}"
+            Placeholder="Target" />
+
+
+            <Label 
+            Text="Modo  OneWayToSource nesse modo toda alteração no target altera o source"
+            VerticalOptions="Center" 
+             />
+            <Entry 
+            x:Name="sourceOneWayToSource"
+            FontSize="50"
+            Text="Initial"
+            Placeholder="Source" />
+
+            <Entry 
+            x:Name="targetOneWayToSource"
+            FontSize="50"
+            Text="{Binding Source={x:Reference sourceOneWayToSource}, Path=Text, Mode=OneWayToSource}"
+            Placeholder="Target" />
+
+
+            <Label 
+            Text="Modo TwoWay nesse modo o source e o target se alteram"
+            VerticalOptions="Center" 
+             />
+            <Entry 
+            x:Name="sourceTwoWay"
+            FontSize="50"
+            Text="Initial"
+            Placeholder="Source" />
+
+            <Entry 
+            x:Name="targetTwoWay"
+            FontSize="50"
+            Text="{Binding Source={x:Reference sourceTwoWay}, Path=Text, Mode=TwoWay}"
+            Placeholder="Target" />
+
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

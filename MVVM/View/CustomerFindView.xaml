@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="data_bind.MVVM.View.CustomerFindView"
+             Title="CustomerFindView">
+    <ScrollView>
+        <VerticalStackLayout>
+            <Entry 
+            x:Name="txtCPF"
+                Placeholder="CPF"
+            Text="{Binding CPF}"
+            VerticalOptions="Center" 
+            FontSize="50"
+            HorizontalOptions="Center" />
+            <Entry 
+            x:Name="txtName"
+            Text="{Binding Name}"
+                Placeholder="Name"
+            FontSize="50"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+            <Entry 
+            x:Name="txtAge"
+            Placeholder="Age"
+            Text="{Binding Age}"
+            FontSize="50"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+            <Entry 
+            x:Name="txtRG"
+                Placeholder="RG"
+            Text="{Binding RG}"
+            FontSize="50"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+            <Entry 
+            x:Name="txtPhone"
+                Placeholder="Phone"
+            Text="{Binding Phone}"
+            FontSize="50"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+            <Switch
+                IsToggled="{Binding IsMarried}"
+                ></Switch>
+
+            <DatePicker
+                
+                Date="{Binding Birthday}"
+                ></DatePicker>
+
+            <TimePicker
+                Time="{Binding LunchTime}"
+                ></TimePicker>
+
+
+            <Label
+                Text="Address"
+                ></Label>
+            <Entry 
+                x:Name="txtStreet"
+                >
+            </Entry>
+
+            <Label
+                Text="Estado"
+                ></Label>
+            
+            <Picker
+                x:Name="pickerState"
+                VerticalOptions="Center"  >
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>SP</x:String>
+                        <x:String>RJ</x:String>
+                        <x:String>MG</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            <Button 
+                Text="Add Address"
+                x:Name="btnAddAddress"
+                Clicked="btnAddAddress_Clicked"
+                VerticalOptions="Center" 
+                HorizontalOptions="FillAndExpand"
+            />
+
+            <CollectionView 
+                    ItemsSource="{Binding AddressViewModels}"  
+                >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                            <VerticalStackLayout>
+                                <Frame
+                            Margin="20"
+                            BorderColor="DarkGray"
+                            CornerRadius="5"
+                            HasShadow="True"
+                            HeightRequest="100"
+                            HorizontalOptions="Center"
+                            VerticalOptions="CenterAndExpand">
+                                    <HorizontalStackLayout Spacing="10">
+                                        <Label VerticalTextAlignment="Center" Text="{Binding Street}" />
+                                        <Label VerticalTextAlignment="Center" Text="{Binding State}" />
+                                    </HorizontalStackLayout>
+                                </Frame>
+                            </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Button 
+            Text="Bind Customer"
+            Clicked="Button_Clicked"
+            VerticalOptions="Center" 
+            HorizontalOptions="FillAndExpand"
+            />
+            <Button 
+            Text="Mask Fields"
+            x:Name="btnMaskFields"
+            Clicked="btnMaskFields_Clicked"
+            VerticalOptions="Center" 
+            HorizontalOptions="FillAndExpand"
+            />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

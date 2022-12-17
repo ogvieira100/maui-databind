@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="data_bind.Pages.XamlBind"
+             xmlns:Models="clr-namespace:data_bind.Models"
+             Title="XamlBind">
+
+    <ContentPage.Resources>
+        <Models:Person
+            x:Key="person"
+            Address="Rua das Palmeiras"
+            Name="João"
+            Phone="xxxx"
+            >
+            
+        </Models:Person>
+    </ContentPage.Resources>
+    <VerticalStackLayout>
+        <Label 
+            x:Name="txtName"
+            Text="{Binding Name , Source={StaticResource person}}"
+            VerticalOptions="Center" 
+            FontSize="50"
+            
+            HorizontalOptions="Center" />
+        <Label 
+            x:Name="txtPhone"
+            
+            FontSize="50"
+             Text="{Binding Phone , Source={StaticResource person}}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Label 
+            x:Name="txtAddress"
+            
+            FontSize="50"
+            Text="{Binding Address , Source={StaticResource person}}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+       
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="data_bind.MainPage">
+
+    <ScrollView>
+        <StackLayout
+           Spacing="5"
+            >
+           
+            <Button
+                x:Name="btnFirstBind"
+                Text="Primeira Vinculacao"
+                HorizontalOptions="FillAndExpand"
+                HeightRequest="50"
+                Clicked="btnFirstBind_Clicked"
+                />
+
+            <Button
+                x:Name="btnSecondBind"
+                Text="Criando uma associação a partir do codigo XML"
+                HorizontalOptions="FillAndExpand"
+                HeightRequest="50"
+                Clicked="btnSecondBind_Clicked"
+                />
+
+            <Button
+                x:Name="btnTirdBind"
+                Text="Contexto Vinculativo"
+                HorizontalOptions="FillAndExpand"
+                HeightRequest="50"
+                Clicked="btnTirdBind_Clicked"
+                />
+
+            <Button
+                x:Name="btnFourBind"
+                Text="Bind entre controles"
+                HorizontalOptions="FillAndExpand"
+                HeightRequest="50"
+                Clicked="btnFourBind_Clicked"
+                />
+
+            <Button
+                x:Name="btnFiveBind"
+                Text="Diferentes tipos de bind"
+                HorizontalOptions="FillAndExpand"
+                HeightRequest="50"
+                Clicked="btnFiveBind_Clicked"
+                />
+            <Button
+                x:Name="btnSixBind"
+                Text="NotifyPropertyChanged"
+                HorizontalOptions="FillAndExpand"
+                HeightRequest="50"
+                Clicked="btnSixBind_Clicked"
+                />
+
+            <Button
+                x:Name="btnMVVM"
+                Text="MVVM"
+                HorizontalOptions="FillAndExpand"
+                HeightRequest="50"
+                Clicked="btnMVVM_Clicked"
+                />
+
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>
