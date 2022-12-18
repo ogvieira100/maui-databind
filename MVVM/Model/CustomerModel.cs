@@ -95,7 +95,7 @@ namespace data_bind.MVVM.Model
             {
                 AddNoty(new Noty
                 {
-                    Message = "Atenção Name Inválido"
+                    Message = "Atenção Nome Inválido"
                 }); ;
                 return false;
             }
@@ -105,11 +105,16 @@ namespace data_bind.MVVM.Model
 
 
         protected override bool IsValidModel()
-            =>
-               isValidCPF()
-            && isValidAge()
-            && isValidName()
-            ;
+        {
+            ClearNoty();
+            return
+                   isValidCPF()
+            || isValidAge()
+            || isValidName();
+        }
+            
+            
+            
 
         public void SetIsMarried(bool value)
         {

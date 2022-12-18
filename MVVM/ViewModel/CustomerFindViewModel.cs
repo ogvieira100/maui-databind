@@ -153,7 +153,34 @@ namespace data_bind.MVVM.ViewModel
          */
         protected async override Task SaveActionAsync()
         {
-            await Task.FromResult(0);
+            /*
+             na passagem de parametro pode ser usado as propriedades da classe 
+             ou pode assim passando par de outro elemento
+
+             SearchCommand="{Binding SearchCommand}"
+             SearchCommandParameter="{Binding Source={x:Reference searchBar}, Patch=Text}"
+            s-> é par
+             ClickSaveCommand = new Command(async (s) =>
+            {
+
+                if (!BaseModel.IsValid)
+                {
+                    var messageErrors = string.Empty;
+                    foreach (var msg in BaseModel.Notys.Select(x => x.Message))
+                        messageErrors += msg + System.Environment.NewLine;
+                    await App.Current.MainPage.DisplayAlert("Atenção", messageErrors, "Ok");
+                }
+                else
+                    SaveAction?.Invoke();
+            });
+
+             */
+            /*
+               public DateTime Birthday { get ; private set; }
+        public string Phone { get; private set; }
+             */
+            await App.Current.MainPage.DisplayAlert("Atenção", "Dados Salvos Com Sucesso!", "Ok");
+            
         }
     }
 }

@@ -113,10 +113,10 @@
             </CollectionView>
 
             <Button 
-            Text="Bind Customer"
-            Clicked="Button_Clicked"
-            VerticalOptions="Center" 
-            HorizontalOptions="FillAndExpand"
+                    Text="Bind Customer"
+                    Command="{Binding ClickSaveCommand}"
+                    VerticalOptions="Center" 
+                    HorizontalOptions="FillAndExpand"
             />
             <Button 
             Text="Mask Fields"
