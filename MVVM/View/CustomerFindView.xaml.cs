@@ -12,6 +12,15 @@ public partial class CustomerFindView : ContentPage
         InitializeComponent();
 
         CustomerFindViewModel = new CustomerFindViewModel();
+        CustomerFindViewModel.CPF = "21371885893";
+        CustomerFindViewModel.RG = "299463680";
+        CustomerFindViewModel.Age = 10;
+        CustomerFindViewModel.LunchTime = new TimeSpan(15, 30, 00);
+        CustomerFindViewModel.Birthday = DateTime.Now.AddYears(-40);
+        CustomerFindViewModel.IsMarried = true;
+        CustomerFindViewModel.Phone = "551133414646";
+        CustomerFindViewModel.Name = "Osmar Gonçalves Vieira";
+
         CustomerFindViewModel.AddAddresses(new AddressViewModel
         {
 
@@ -23,23 +32,9 @@ public partial class CustomerFindView : ContentPage
 
             Street = "das Alcantaras",
             State = Model.State.SP
-        });
-        //CustomerFindViewModel.AddressViewModels = new List<AddressViewModel>
-        //{
-        //    new AddressViewModel
-        //    {
-
-        //        Street = "Rua dos Patos",
-        //        State = Model.State.RJ
-        //    },
-        //     new AddressViewModel
-        //    {
-
-        //        Street = "Rua das Alcantaras",
-        //        State = Model.State.SP
-        //    }
-        //};
-        BindingContext = CustomerFindViewModel;
+        }
+        );
+       BindingContext = CustomerFindViewModel;
     }
 
 

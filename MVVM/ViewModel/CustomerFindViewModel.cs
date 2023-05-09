@@ -57,7 +57,8 @@ namespace data_bind.MVVM.ViewModel
 
             set
             {
-                phone = value;
+                phone = string.Empty;
+                phone = value.FormatPhone();
                 Customer.SetPhone(value);
                 onPropertyChanged();
             }
@@ -67,7 +68,8 @@ namespace data_bind.MVVM.ViewModel
             get => rG;
             set
             {
-                rG = value;
+                rG = string.Empty;
+                rG = value.FormatRG();
                 Customer.SetRg(value);
                 onPropertyChanged();
             }
@@ -90,7 +92,8 @@ namespace data_bind.MVVM.ViewModel
             get => cPF;
             set
             {
-                cPF = value;
+                cPF = string.Empty;
+                cPF = value.FormatCPF();
                 Customer.SetCpf(value);
                 onPropertyChanged();
             }
@@ -100,6 +103,7 @@ namespace data_bind.MVVM.ViewModel
             get => name;
             set
             {
+                name = string.Empty;
                 name = value;
                 Customer.SetName(name);
                 onPropertyChanged();
@@ -117,17 +121,11 @@ namespace data_bind.MVVM.ViewModel
         }
 
 
-        public void FormatCPF() => CPF = cPF.FormatCPF();
-
-        public void FormatRg() => RG = rG.FormatRG();
-
-        public void FormatPhone() => Phone = phone.FormatPhone();
+       
 
         public void FormatFields()
         {
-            FormatCPF();
-            FormatRg();
-            FormatPhone();
+            
         }
         public CustomerFindViewModel()
         {

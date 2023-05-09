@@ -2,8 +2,43 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="data_bind.Pages.FirstBind"
-             Title="FirstBind">
+             Title="FirstBind"
+             xmlns:Models="clr-namespace:data_bind.Models"
+             >
+
+
+    <ContentPage.Resources>
+        <Models:Person
+            x:Key="person"
+            Name="Static Element Peter"
+            Address="Static Element Some address"
+            Phone="Static Element xxxx" />
+    </ContentPage.Resources>
+    
     <VerticalStackLayout>
+
+        <Label 
+            x:Name="txtNameStaticClass"
+            Text="{Binding Name, Source={StaticResource person}}"
+            VerticalOptions="Center" 
+            FontSize="50"
+            HorizontalOptions="Center" />
+        
+        <Label 
+            x:Name="txtPhoneStaticClass"
+            Text="{Binding Phone, Source={StaticResource person}}"
+            FontSize="50"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Label 
+            x:Name="txtAddressStaticClass"
+            Text="{Binding Address, Source={StaticResource person}}"
+            FontSize="50"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+
+
         <Label 
             x:Name="txtName"
             Text="Bind Name"

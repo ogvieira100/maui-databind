@@ -45,7 +45,16 @@ namespace data_bind.Models
             return String.Join("&", propWriteQuery.ToArray());
         }
 
-        public static string OnlyNumbers(string numbers) => String.Join("", System.Text.RegularExpressions.Regex.Split(string.IsNullOrEmpty(numbers) ? "" : numbers, @"[^\d]"));
+        public static string OnlyNumbers(string numbers)
+        {
+
+            if (string.IsNullOrEmpty(numbers))
+                return "";
+
+            return String.Join("", System.Text.RegularExpressions.Regex.Split(string.IsNullOrEmpty(numbers) ? "" : numbers, @"[^\d]"));
+             
+        }
+            
 
         public static bool IsGuid(string numero)
         {
@@ -80,11 +89,15 @@ namespace data_bind.Models
 
         public static string FormatCPF(string CPF)
         {
-            if (string.IsNullOrEmpty(CPF))
-                return "";
+
+            if (CPF.OnlyNumbers().Length  < 11)
+                return CPF ?? "";
 
 
-            var cpfOnlyNumbers = CPF.OnlyNumbers().PadRight(11,'0').Substring(0,11);
+            var cpfOnlyNumbers = CPF.OnlyNumbers();
+            if (string.IsNullOrEmpty(cpfOnlyNumbers))
+             return  CPF;
+
             var cpfArray = cpfOnlyNumbers.ToCharArray();
 
             cpfOnlyNumbers = string.Empty;
@@ -103,9 +116,28 @@ namespace data_bind.Models
         public static string FormatRG(string texto)
         {
 
-            texto = texto.OnlyNumbers().PadRight(9,'0') ;
-            return texto.Substring(0, 2) + "." + texto.Substring(2, 3) + "." + texto.Substring(5, 3) + "-" + texto.Substring(8, 1).ToUpper();
+            //299463680
+            if (texto.OnlyNumbers().Length != 9)
+                return texto;
 
+            var cpfArray = texto.OnlyNumbers().ToCharArray();
+
+
+            var phoneOnlyNumbers = string.Empty;
+            
+            for (int i = 0; i < cpfArray.Length; i++)
+            {
+                //299463680
+                if (i == 1)
+                    phoneOnlyNumbers += cpfArray[i] + ".";
+                else if (i == 4)
+                    phoneOnlyNumbers += cpfArray[i] + ".";
+                else if (i == 7)
+                    phoneOnlyNumbers += cpfArray[i] + "-";
+
+                else phoneOnlyNumbers += cpfArray[i];
+            }
+            return phoneOnlyNumbers;
         } 
 
         public static bool IsCpf(string cpf)
@@ -232,8 +264,29 @@ namespace data_bind.Models
 
         public static string FormatPhone(string texto)
         {
-            texto = texto.OnlyNumbers().PadRight(12, '0');
-            return texto.Substring(0, 2) + "+ (" + texto.Substring(2, 2) + ") " + texto.Substring(4,4) + "-" + texto.Substring(8, 4).ToUpper();
+            //551133414646
+            if (texto.OnlyNumbers().Length != 12)
+                return texto;
+
+            var cpfArray = texto.OnlyNumbers().ToCharArray();
+
+
+            var phoneOnlyNumbers = string.Empty;
+            phoneOnlyNumbers = "+";
+            for (int i = 0; i < cpfArray.Length; i++)
+            {
+                //551133414646
+                if (i == 1)
+                    phoneOnlyNumbers += cpfArray[i] + "(";
+                else if (i == 3)
+                    phoneOnlyNumbers += cpfArray[i] + ")";
+                else if (i == 7)
+                    phoneOnlyNumbers += cpfArray[i] + "-";
+
+                else phoneOnlyNumbers += cpfArray[i];
+            }
+            return phoneOnlyNumbers;
+
         }
 
         #endregion

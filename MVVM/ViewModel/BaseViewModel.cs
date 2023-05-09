@@ -43,7 +43,7 @@ namespace data_bind.MVVM.ViewModel
                     var messageErrors = string.Empty;
                     foreach (var msg in BaseModel.Notys.Select(x => x.Message))
                         messageErrors += msg + System.Environment.NewLine;
-                    await App.Current.MainPage.DisplayAlert("Atenção", messageErrors, "Ok");
+                    await Application.Current.MainPage.DisplayAlert("Atenção", messageErrors, "Ok");
                 }
                 else
                     SaveAction?.Invoke();
