@@ -90,6 +90,7 @@
 
             <CollectionView 
                     ItemsSource="{Binding AddressViewModels}"  
+                x:Name="colAddress"
                 >
                 <CollectionView.ItemTemplate>
                     <DataTemplate>

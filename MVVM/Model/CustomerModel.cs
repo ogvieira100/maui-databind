@@ -109,8 +109,8 @@ namespace data_bind.MVVM.Model
             ClearNoty();
             return
                    isValidCPF()
-            || isValidAge()
-            || isValidName();
+            && isValidAge()
+            && isValidName();
         }
             
             
