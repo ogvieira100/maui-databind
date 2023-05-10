@@ -33,5 +33,17 @@ public partial class FirstBind : ContentPage
         txtPhone.SetBinding(Label.TextProperty, personBindingPhone);
         txtAddress.SetBinding(Label.TextProperty, personBindingAddress);
 
+
+        //txtName.BindingContext = person;
+        //      txtName.SetBinding(Label.TextProperty, "Name");
+
+        //Binding personBinding =
+        //  new Binding();
+
+        //personBinding.Source = person;
+        //personBinding.Path = "Name";
+
+        //txtName.SetBinding(Label.TextProperty, personBinding);
+
     }
 }
