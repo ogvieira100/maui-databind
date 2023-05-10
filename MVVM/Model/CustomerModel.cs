@@ -27,7 +27,6 @@ namespace data_bind.MVVM.Model
 
         public void AddAddresses(AddressModel addressModel)
         { 
-        
             _Addresses.Add(addressModel);
         }
 

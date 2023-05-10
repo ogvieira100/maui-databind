@@ -56,13 +56,25 @@ public partial class CustomerFindView : ContentPage
         CustomerFindViewModel.FormatFields();
     }
 
-    private void btnAddAddress_Clicked(object sender, EventArgs e)
+    private async void btnAddAddress_Clicked(object sender, EventArgs e)
     {
-        CustomerFindViewModel.AddAddresses(new AddressViewModel
+        var selectedItem = "0";
+        if (pickerState.SelectedItem is not null)
+            selectedItem = pickerState.SelectedItem.ToString();
+
+        var address = new AddressViewModel
         {
             Street = txtStreet.Text,
-            State = pickerState.SelectedItem.ToString().GetEnumToName<Model.State>(Model.State.SP)
-        });
-        colAddress.ItemsSource = CustomerFindViewModel.AddressViewModels;
+            State = selectedItem.GetEnumToName<Model.State>(Model.State.SP)
+        };
+        if (address.IsValid)
+        {
+            CustomerFindViewModel.AddAddresses(address);
+            colAddress.ItemsSource = CustomerFindViewModel.AddressViewModels;
+        }
+        else
+        {
+            await App.Current.MainPage.DisplayAlert("Atenção", string.Join(',', address.Notys.Select(x => x.Message)), "Ok");
+        }
     }
 }

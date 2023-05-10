@@ -21,7 +21,8 @@ namespace data_bind.MVVM.ViewModel
                 onPropertyChanged();
             }
         }
-        public State State { get => state; set
+        public State State { get => state;
+            set
             {
                 state = value;
                 Addresses.SetState(value);
